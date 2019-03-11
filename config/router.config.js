@@ -21,17 +21,22 @@ export default [
     Routes: ['src/pages/Authorized'],
     routes: [
       // dashboard
-      { path: '/', redirect: '/student/list' },
+      { path: '/', redirect: '/doctor/list1' },
       {
-        path: '/student',
-        name: 'student',
+        path: '/doctor',
+        name: 'doctor',
         icon: 'team',
         routes: [
-          // 学生管理
+          // 医生管理
           {
-            path: '/student/list',
-            name: 'list',
-            component: './Student/Student',
+            path: '/doctor/list1',
+            name: 'list1',
+            component: './Doctor/Doctor',
+          },
+          {
+            path: '/doctor/list2',
+            name: 'list2',
+            component: './Doctor/Doctor',
           },
         ],
       },

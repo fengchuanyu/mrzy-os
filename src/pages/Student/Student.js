@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'dva';
-import PageHeaderWrapper from '@/components/PageHeaderWrapper';
 
 @connect(student => {
   return {
@@ -22,11 +21,7 @@ class Student extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <PageHeaderWrapper title="学生列表">学生管理</PageHeaderWrapper>
-      </div>
-    );
+    return <div />;
   }
 }
 export default Student;

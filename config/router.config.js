@@ -36,6 +36,26 @@ export default [
         ],
       },
       {
+        path: '/casehistory',
+        name: 'casehistory',
+        icon: 'team',
+      },
+      {
+        path: '/message',
+        name: 'message',
+        icon: 'team',
+      },
+      {
+        path: '/feature',
+        name: 'feature',
+        icon: 'team',
+      },
+      {
+        path: '/userlist',
+        name: 'userlist',
+        icon: 'team',
+      },
+      {
         component: '404',
       },
     ],

@@ -44,4 +44,7 @@ export default {
   'menu.message': '文章管理',
   'menu.feature': '特色诊疗',
   'menu.userlist': '用户列表',
+  'menu.feature.detail-page': '诊疗分类',
+  'menu.feature.add-page': '添加诊疗',
+  'menu.feature.office-page': '科室管理',
 };

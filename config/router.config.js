@@ -49,6 +49,27 @@ export default [
         path: '/feature',
         name: 'feature',
         icon: 'team',
+        //特色诊疗
+        routes: [
+          {
+            path: '/feature/detail-page',
+            name: 'detail-page',
+            icon: 'ellipsis',
+            component: './Feature/Feature_detail_page',
+          },
+          {
+            path: '/feature/add-page',
+            name: 'add-page',
+            icon: 'file-add',
+            component: './Feature/Feature_add_page',
+          },
+          {
+            path: '/feature/office-page',
+            name: 'office-page',
+            icon: 'desktop',
+            component: './Feature/Feature_office_page',
+          },
+        ],
       },
       {
         path: '/userlist',

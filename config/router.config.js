@@ -43,7 +43,29 @@ export default [
       {
         path: '/casehistory',
         name: 'casehistory',
-        icon: 'team',
+        icon: 'read',
+        routes: [
+          // 病例管理
+          {
+            path: '/casehistory/caselist',
+            name: 'caselist',
+            icon:'bars',
+            component: './CaseHistory/CaseList',
+          },
+          {
+            path: '/casehistory/casesend',
+            name: 'casesend',
+            icon:'book',
+            hideInMenu:true,
+            component: './CaseHistory/CaseSend',
+          },
+          {
+            path: '/casehistory/registration',
+            name: 'registration',
+            icon:'bars',
+            component: './CaseHistory/Registration',
+          },
+        ],
       },
       {
         path: '/message',

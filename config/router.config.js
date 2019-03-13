@@ -31,12 +31,12 @@ export default [
           {
             path: '/doctor/list1',
             name: 'list1',
-            component: './Doctor/Doctor',
+            component: './Doctor/doctorList',
           },
           {
             path: '/doctor/list2',
             name: 'list2',
-            component: './Doctor/Doctor',
+            component: './Doctor/addDoctor',
           },
         ],
       },
@@ -49,20 +49,20 @@ export default [
           {
             path: '/casehistory/caselist',
             name: 'caselist',
-            icon:'bars',
+            icon: 'bars',
             component: './CaseHistory/CaseList',
           },
           {
             path: '/casehistory/casesend',
             name: 'casesend',
-            icon:'book',
-            hideInMenu:true,
+            icon: 'book',
+            hideInMenu: true,
             component: './CaseHistory/CaseSend',
           },
           {
             path: '/casehistory/registration',
             name: 'registration',
-            icon:'bars',
+            icon: 'bars',
             component: './CaseHistory/Registration',
           },
         ],
@@ -102,7 +102,7 @@ export default [
         path: '/userlist',
         name: 'userlist',
         icon: 'solution',
-        component:'./UserList/UserList',
+        component: './UserList/UserList',
       },
       {
         component: '404',

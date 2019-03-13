@@ -21,24 +21,51 @@ export default [
     Routes: ['src/pages/Authorized'],
     routes: [
       // dashboard
-      { path: '/', redirect: '/student/list' },
+      { path: '/', redirect: '/doctor/list1' },
       {
-        path: '/student',
-        name: 'student',
+        path: '/doctor',
+        name: 'doctor',
         icon: 'team',
         routes: [
-          // 学生管理
+          // 医生管理
           {
-            path: '/student/list',
-            name: 'list',
-            component: './Student/Student',
+            path: '/doctor/list1',
+            name: 'list1',
+            component: './Doctor/Doctor',
+          },
+          {
+            path: '/doctor/list2',
+            name: 'list2',
+            component: './Doctor/Doctor',
           },
         ],
       },
       {
         path: '/casehistory',
         name: 'casehistory',
-        icon: 'team',
+        icon: 'read',
+        routes: [
+          // 病例管理
+          {
+            path: '/casehistory/caselist',
+            name: 'caselist',
+            icon:'bars',
+            component: './CaseHistory/CaseList',
+          },
+          {
+            path: '/casehistory/casesend',
+            name: 'casesend',
+            icon:'book',
+            hideInMenu:true,
+            component: './CaseHistory/CaseSend',
+          },
+          {
+            path: '/casehistory/registration',
+            name: 'registration',
+            icon:'bars',
+            component: './CaseHistory/Registration',
+          },
+        ],
       },
       {
         path: '/message',

@@ -1,7 +1,7 @@
 import { getStudent } from '@/services/api';
 
 export default {
-  namespace: 'student',
+  namespace: 'doctor',
 
   state: {
     list: [],

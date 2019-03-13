@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'dva';
 
-@connect(student => {
+@connect(doctor => {
   return {
-    student,
+    doctor,
   };
 })
-class Student extends Component {
+class Doctor extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -15,13 +15,13 @@ class Student extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch({
-      type: 'student/gets',
+      type: 'doctor/gets',
       payload: { testaa: '123123' },
     });
   }
 
   render() {
-    return <div />;
+    return <div>我是Doctor页</div>;
   }
 }
-export default Student;
+export default Doctor;

@@ -51,4 +51,6 @@ export default {
   'menu.feature.detail-page': '诊疗分类',
   'menu.feature.add-page': '添加诊疗',
   'menu.feature.office-page': '科室管理',
+  'menu.message.messagelist':'文章列表',
+  'menu.message.addmessage':'添加文章',
 };

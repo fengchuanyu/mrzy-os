@@ -71,6 +71,21 @@ export default [
         path: '/message',
         name: 'message',
         icon: 'team',
+        routes:[
+          {
+            path: '/message/messagelist',
+            name: 'messagelist',
+            icon: 'snippets',
+            component: './Message/Message',
+          },
+          {
+            path: '/message/addmessage',
+            name: 'addmessage',
+            icon: 'highlight',
+            component: './Message/AddMessage',
+          },
+
+        ]
       },
       {
         path: '/feature',

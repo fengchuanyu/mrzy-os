@@ -58,7 +58,8 @@ export default [
       {
         path: '/userlist',
         name: 'userlist',
-        icon: 'team',
+        icon: 'solution',
+        component:'./UserList/UserList',
       },
       {
         component: '404',

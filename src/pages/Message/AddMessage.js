@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 // 引入编辑器组件
-import BraftEditor from 'braft-editor'
+import BraftEditor from 'braft-editor';
 // 引入编辑器样式
-import 'braft-editor/dist/index.css'
+import 'braft-editor/dist/index.css';
 import { Input, Icon,Button, Col, Row, Select, InputNumber, DatePicker, AutoComplete, Cascader, } from 'antd';
-import msg_style from'./Message.less'
-import Msg_add from './Add_message_popops.js'
+import msg_style from'./Message.less';
+import Msg_add from './Add_message_popops.js';
+import PageHeaderWrapper from '@/components/PageHeaderWrapper';
 const InputGroup = Input.Group;
 const Option = Select.Option;
 
@@ -37,6 +38,7 @@ class AddMessage extends Component {
         const suffix = messageName ? <Icon type="close-circle" onClick={this.emitEmpty} /> : null;
         return (
          <div >
+           <PageHeaderWrapper title='添加文章'></PageHeaderWrapper>
            <form action="">
            <InputGroup compact>
               < Select defaultValue="文章类型">

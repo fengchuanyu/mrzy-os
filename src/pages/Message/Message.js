@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'dva';
-import msg_style from'./Message.less'
+import msg_style from './Message.less'
 import Msg_popops from './Popups.js'
 import Msg_del from './Del_message_popops.js'
 import { Table } from 'antd';
-import {Popover} from 'antd';
+import { Popover } from 'antd';
 import {
   Drawer, Form, Button, Col, Row, Input, Select, DatePicker, Icon,
 } from 'antd';
+import PageHeaderWrapper from '@/components/PageHeaderWrapper';
 
 const { Option } = Select;
 const columns = [{
@@ -23,12 +24,12 @@ const columns = [{
 }, {
   title: 'Action',
   dataIndex: 'msg_action',
-  render: msg_button => 
-  <span>
-    <Msg_popops></Msg_popops>
-    <Msg_del></Msg_del>
-    
-  </span>,
+  render: msg_button =>
+    <span>
+      <Msg_popops></Msg_popops>
+      <Msg_del></Msg_del>
+
+    </span>,
 }
 ];
 
@@ -44,7 +45,7 @@ const data = [{
   key: '3',
   msg_title: '啊啊啊',
   msg_type: '娃娃',
-}, 
+},
 ];
 @connect(message => {
   return {
@@ -57,7 +58,7 @@ class Message extends Component {
     this.state = {
       visible: false
     };
-    
+
   }
   //抽屉开始
   showDrawer = () => {
@@ -75,20 +76,21 @@ class Message extends Component {
   render() {
     return (
       <div>
+        <PageHeaderWrapper title='文章列表'></PageHeaderWrapper>
         <form action="">
-        <Table 
-        columns={columns}
-        dataSource={data}
-        bordered
-        className={msg_style.td} 
-        >
+          <Table
+            columns={columns}
+            dataSource={data}
+            bordered
+            className={msg_style.td}
+          >
 
-        </Table>
+          </Table>
         </form>
-        
-        
+
+
       </div>
-     
+
     );
   }
 }

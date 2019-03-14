@@ -4,6 +4,7 @@ import { Card, Icon, Button } from 'antd';
 import doctorListStyles from './doctorList.less';
 import Popups from './Popups';
 import router from 'umi/router';
+import PageHeaderWrapper from '@/components/PageHeaderWrapper';
 @connect(doctor => {
   return {
     doctor,
@@ -26,6 +27,9 @@ class Doctor extends Component {
   render() {
     return (
       <div className={doctorListStyles.container}>
+      <div>
+        <PageHeaderWrapper title='医生列表'></PageHeaderWrapper>
+      </div>
         <Card
           style={{ width: 240, height: 420 }}
           cover={

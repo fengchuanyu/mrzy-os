@@ -3,6 +3,7 @@ import { connect } from 'dva';
 import { Upload, Input, Icon, Button, Form, Select } from 'antd';
 import addDoctorStyles from './addDoctor.less';
 import style from './addDoctor.less';
+import PageHeaderWrapper from '@/components/PageHeaderWrapper';
 
 const { Option } = Select;
 const { TextArea } = Input;
@@ -27,6 +28,10 @@ class Doctor extends Component {
 
   render() {
     return (
+      <div>
+      <div>
+      <PageHeaderWrapper title='添加医生'></PageHeaderWrapper>
+      </div>
       <div className={style.container}>
         <Form>
           <Upload>
@@ -86,6 +91,7 @@ class Doctor extends Component {
             </Button>
           </Form.Item>
         </Form>
+        </div>
       </div>
     );
   }

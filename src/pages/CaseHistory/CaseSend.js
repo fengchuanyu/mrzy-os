@@ -4,6 +4,7 @@ import PageHeaderWrapper from '@/components/PageHeaderWrapper';
 import { Input, Icon, Select, Button,Form } from 'antd';
 import BraftEditor from 'braft-editor';
 import 'braft-editor/dist/index.css';
+import { get } from 'https';
 
 
 const Option = Select.Option;
@@ -35,6 +36,10 @@ class CaseSend extends Component {
       plan:null,
       matters:null,
     };
+  }
+
+  componentDidMount(){
+    console.log(this.props.location.query.id);
   }
 
   handleEditorChange = (editorState) => {

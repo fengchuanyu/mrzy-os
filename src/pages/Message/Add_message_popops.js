@@ -36,7 +36,7 @@ class Popups extends Component {
         return <div className={style.popups_1}>
             <Button type="primary" onClick={this.showModal}>
                 发布
-</Button>
+            </Button>
             <Modal
                 title="增加文章"
                 visible={this.state.visible}
@@ -44,7 +44,7 @@ class Popups extends Component {
                 onCancel={this.handleCancel}
             >
                 您确定要发布吗？
-</Modal>
+            </Modal>
         </div>
     }
 }

@@ -16,8 +16,10 @@ class AddMessage extends Component {
         this.state = { 
             editorState: BraftEditor.createEditorState(null),
             messageName: '',
-        };
-        
+        }; 
+      }
+      componentDidMount(){
+        console.log(this.props.location.query.id);
       }
       //标题 开始
       emitEmpty = () => {

@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'dva';
-import msg_style from './Message.less'
-import Msg_popops from './Popups.js'
-import Msg_del from './Del_message_popops.js'
+import msg_style from './Message.less';
+import Msg_del from './Del_message_popops.js';
 import { Table } from 'antd';
-import { Popover } from 'antd';
 import {
   Drawer, Form, Button, Col, Row, Input, Select, DatePicker, Icon,
 } from 'antd';
 import PageHeaderWrapper from '@/components/PageHeaderWrapper';
+import router from 'umi/router';
 
 const { Option } = Select;
+
 const columns = [{
   title: '标题',
   dataIndex: 'msg_title',
@@ -24,29 +24,41 @@ const columns = [{
 }, {
   title: 'Action',
   dataIndex: 'msg_action',
-  render: msg_button =>
-    <span>
-      <Msg_popops></Msg_popops>
-      <Msg_del></Msg_del>
-
-    </span>,
+  render: (text,record) => {
+    return (
+      <div>
+        <Button type="primary" onClick={()=>goAddMessage(record.id)}>
+          编辑
+        </Button>
+        <Msg_del></Msg_del>
+      </div>
+    )
+  }
 }
 ];
 
 const data = [{
+  id: 1,
   key: '1',
   msg_title: '中医药',
   msg_type: '妇科',
 }, {
+  id: 2,
   key: '2',
   msg_title: '西医',
   msg_type: '吃雅培',
 }, {
+  id: 3,
   key: '3',
   msg_title: '啊啊啊',
   msg_type: '娃娃',
 },
 ];
+
+function goAddMessage(id) {
+  router.push(`/message/addmessage?id=${id}`);
+}
+
 @connect(message => {
   return {
     message,
@@ -60,7 +72,7 @@ class Message extends Component {
     };
 
   }
-  //抽屉开始
+
   showDrawer = () => {
     this.setState({
       visible: true,
@@ -72,7 +84,6 @@ class Message extends Component {
       visible: false,
     });
   };
-  //抽屉结束
   render() {
     return (
       <div>

@@ -19,12 +19,10 @@ const columns = [{
 },{
   title: 'action',
   dataIndex: '',
-  render: () => {
-
-    
+  render: (record) => {
     return (
       <div>
-        <Button type="primary" onClick={goRegistration}>编辑</Button>
+        <Button type="primary" onClick={()=>goRegistration(record.id)}>编辑</Button>
         <Button type="primary">删除</Button>
         <Popups></Popups>
       </div>
@@ -33,16 +31,19 @@ const columns = [{
 }];
 
 const data = [{//表格数据
+  id:1,
   key: '1',
   name: 'John Brown',
   keshi: '￥300,000.00',
   doctor: 'New York No. 1 Lake Park',
 }, {
+  id:2,
   key: '2',
   name: 'Jim Green',
   keshi: '￥1,256,000.00',
   doctor: 'London No. 1 Lake Park',
 }, {
+  id:3,
   key: '3',
   name: 'Joe Black',
   keshi: '￥120,000.00',
@@ -61,8 +62,8 @@ function handleFocus() {
   console.log('focus');
 }
 
-function goRegistration(){
-  router.push("/casehistory/casesend");
+function goRegistration(id){
+  router.push(`/casehistory/casesend?id=${id}`);
 }
 
 @connect(caselist => {

@@ -21,10 +21,18 @@ class Doctor extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch({
-      type: 'doctor/add',
-      payload: { testaa: '123123' },
+      type: 'adddoc/add',
+      payload: {},
     });
   }
+
+  addDoc = () => {
+    const { dispatch } = this.props;
+      dispatch({
+        type: 'adddoc/add',
+        payload: {},
+      });
+    }
 
   render() {
     return (
@@ -33,7 +41,7 @@ class Doctor extends Component {
       <PageHeaderWrapper title='添加医生'></PageHeaderWrapper>
       </div>
       <div className={style.container}>
-        <Form action="">
+        <Form>
           <Upload name="img">
             <Button>
               <Icon type="upload" />
@@ -90,7 +98,7 @@ class Doctor extends Component {
             <TextArea style={{ width: 300 }} size="defualt" placeholder="医生简介" id="error" name="desc"/>
           </Form.Item>
           <Form.Item>
-            <Button type="primary" htmlType="submit">
+            <Button type="primary" htmlType="submit" onClick={this.addDoc}>
               点击保存
             </Button>
           </Form.Item>

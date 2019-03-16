@@ -8,17 +8,17 @@ import Detail from './Detail';
 const TabPane = Tabs.TabPane;
 const columns = [{
     title: '用户名',
-    dataIndex: 'name',
+    dataIndex: 'rid',
   }, {
     title: '患者姓名',
     className: 'keshi',
-    dataIndex: 'patient_name',
+    dataIndex: 'r_uid',
   }, {
     title: '挂号医生',
-    dataIndex: 'doctor',
+    dataIndex: 'r_did',
   }, {
     title: '挂号日期',
-    dataIndex: 'date',
+    dataIndex: 'r_time',
   },{
     title: 'action',
     dataIndex: '',
@@ -30,48 +30,7 @@ const columns = [{
         </div>
         )
       }
-  }];
-
-  const data_curr = [{//当前挂号表格
-    key: '1',
-    name: 'John Brown',
-    patient_name: '￥300,000.00',
-    doctor: 'New York No. 1 Lake Park',
-    date:'1997.09.20',
-  }, {
-    key: '2',
-    name: 'Jim Green',
-    patient_name: '￥1,256,000.00',
-    doctor: 'London No. 1 Lake Park',
-    date:'1997.09.20',
-  }, {
-    key: '3',
-    name: 'Joe Black',
-    patient_name: '￥120,000.00',
-    doctor: 'Sidney No. 1 Lake Park',
-    date:'1997.09.20',
-  }];
-
-  const data_prev = [{//往期挂号表格
-    key: '1',
-    name: 'John Brown',
-    patient_name: '￥300,000.00',
-    doctor: 'New York No. 1 Lake Park',
-    date:'1997.09.20',
-  }, {
-    key: '2',
-    name: 'Jim Green',
-    patient_name: '￥1,256,000.00',
-    doctor: 'London No. 1 Lake Park',
-    date:'1997.09.20',
-  }, {
-    key: '3',
-    name: 'Joe Black',
-    patient_name: '￥120,000.00',
-    doctor: 'Sidney No. 1 Lake Park',
-    date:'1997.09.20',
-  }];
-  
+  }]; 
 
 function callback(key) {
     console.log(key);
@@ -91,22 +50,39 @@ function goRegistration(){
       super(props);
       this.state = {};
     }
+    
+    componentDidMount() {
+      const { dispatch } = this.props;
+      dispatch({
+        type: 'registration/gets',
+        payload: {},
+      });
+    }
+    componentWillReceiveProps(){
+      console.log(this.props.registration.registration)
+      
+      this.setState({
+        data_curr:[...this.props.registration.registration.list]
+      })
+      
+    }
 
   render() {
+    let arr = this.state.data_curr;
     return <div>
       <PageHeaderWrapper title="挂号列表"></PageHeaderWrapper>
       <Tabs defaultActiveKey="1" onChange={callback}>
         <TabPane tab="当前挂号" key="1">
             <Table
                 columns={columns}
-                dataSource={data_curr}
+                dataSource={arr}
                 bordered
             />
         </TabPane>
         <TabPane tab="往期挂号" key="2">
             <Table
                 columns={columns}
-                dataSource={data_prev}
+                dataSource={arr}
                 bordered
             />
         </TabPane>

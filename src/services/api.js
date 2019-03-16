@@ -130,6 +130,17 @@ export async function getDoctor() {
   return request(`${BASE_URL}/zyy/doctor/getdoc`);
 }
 
-// export async function getCaseList() {
-//   return request(`${BASE_URL}/zyy/Cased/getcase`);
-// }
+export async function getRegistration() {
+  return request(`${BASE_URL}/zyy/user/changereg`);
+}
+
+export async function getUserList() {
+  return request(`${BASE_URL}/zyy/user/getusers`);
+}
+
+export async function addDoc(params) {
+  return request('/api/register', {
+    method: 'POST',
+    body: params,
+  });
+}

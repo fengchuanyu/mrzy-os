@@ -5,7 +5,7 @@ import PageHeaderWrapper from '@/components/PageHeaderWrapper';
 import Popups from './Popups';
 
 const RadioGroup = Radio.Group;
-
+ 
 const columns = [
   {
     title: '病症名称',

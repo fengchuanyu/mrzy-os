@@ -8,7 +8,7 @@ import Popups from './Popups'
 const columns = [{
   title: '用户姓名',
   dataIndex: 'name',
-  render: text => <a href="javascript:;">{text}</a>,
+  // render: text => <a href="javascript:;">{text}</a>,
 }, {
   title: '联系方式',
   className: 'column-money',
@@ -17,13 +17,13 @@ const columns = [{
   title: '创建日期',
   dataIndex: 'createtime',
 }, {
-  title: '操作',
+  title: 'Action',
   dataIndex: '',
   render:() =>{
     return(
       <div>
         <Popups></Popups>
-        <Button type="primary" onClick={goCaseHistory}>病例管理</Button>
+        <Button style={{marginLeft:'5px'}} type="primary" onClick={goCaseHistory}>病例管理</Button>
      </div>
     )
 

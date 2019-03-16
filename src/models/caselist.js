@@ -1,7 +1,7 @@
-import { getDoctor } from '@/services/api';
+// import { getCaseList } from '@/services/api';
 
 export default {
-  namespace: 'doctor',
+  namespace: 'caselist',
 
   state: {
     list: [],
@@ -9,7 +9,7 @@ export default {
 
   effects: {
     *gets({ payload }, { call, put }) {
-      const response = yield call(getDoctor, payload);
+      const response = yield call(getCaseList, payload);
       yield put({
         type: 'queryList',
         payload: Array.isArray(response) ? response : [],

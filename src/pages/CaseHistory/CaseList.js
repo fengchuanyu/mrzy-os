@@ -71,12 +71,20 @@ function goRegistration(id){
     caselist,
   };
 })
+
 class CaseList extends Component {
   constructor(props) {
     super(props);
     this.state = {
       visible: false,
     };
+  }
+  componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'caselist/gets',
+      payload: {},
+    });
   }
 
   showDrawer = () => {

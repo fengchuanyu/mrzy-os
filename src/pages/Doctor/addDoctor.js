@@ -21,7 +21,7 @@ class Doctor extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch({
-      type: 'doctor/gets',
+      type: 'doctor/add',
       payload: { testaa: '123123' },
     });
   }
@@ -33,8 +33,8 @@ class Doctor extends Component {
       <PageHeaderWrapper title='添加医生'></PageHeaderWrapper>
       </div>
       <div className={style.container}>
-        <Form>
-          <Upload>
+        <Form action="">
+          <Upload name="img">
             <Button>
               <Icon type="upload" />
               上传图片
@@ -47,10 +47,11 @@ class Doctor extends Component {
               prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
               placeholder="医生姓名"
               id="error"
+              name="name"
             />
           </Form.Item>
           <Form.Item>
-            <Select style={{ width: 300 }} size="small" placeholder="请选择">
+            <Select style={{ width: 300 }} size="small" placeholder="请选择" name="office">
               <Option value="neike">内科</Option>
               <Option value="kangfuke">康复科</Option>
             </Select>
@@ -62,6 +63,7 @@ class Doctor extends Component {
               prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
               placeholder="医生工作地点"
               id="error"
+              name="place"
             />
           </Form.Item>
           <Form.Item validateStatus="error" help="请填写医生职称">
@@ -71,6 +73,7 @@ class Doctor extends Component {
               prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
               placeholder="医生职称"
               id="error"
+              name="job"
             />
           </Form.Item>
           <Form.Item validateStatus="error" help="请填写挂号金额">
@@ -80,10 +83,11 @@ class Doctor extends Component {
               prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
               placeholder="挂号金额"
               id="error"
+              name="price"
             />
           </Form.Item>
           <Form.Item validateStatus="error" help="请填写医生简介">
-            <TextArea style={{ width: 300 }} size="defualt" placeholder="医生简介" id="error" />
+            <TextArea style={{ width: 300 }} size="defualt" placeholder="医生简介" id="error" name="desc"/>
           </Form.Item>
           <Form.Item>
             <Button type="primary" htmlType="submit">

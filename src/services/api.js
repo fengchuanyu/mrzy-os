@@ -1,5 +1,6 @@
 import { stringify } from 'qs';
 import request from '@/utils/request';
+const BASE_URL = 'http://www.mrzymz.com';
 
 export async function queryProjectNotice() {
   return request('/api/project/notice');
@@ -125,9 +126,10 @@ export async function getFakeCaptcha(mobile) {
   return request(`/api/captcha?mobile=${mobile}`);
 }
 
-export async function getStudent(msg) {
-  return request('/api/getstudent', {
-    method: 'POST',
-    body: msg,
-  });
+export async function getDoctor() {
+  return request(`${BASE_URL}/zyy/doctor/getdoc`);
 }
+
+// export async function getCaseList() {
+//   return request(`${BASE_URL}/zyy/Cased/getcase`);
+// }

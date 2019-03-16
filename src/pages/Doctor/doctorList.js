@@ -14,7 +14,7 @@ class Doctor extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      list:[]
+      list: [],
     };
   }
 
@@ -25,26 +25,21 @@ class Doctor extends Component {
       payload: {},
     });
   }
-  componentWillReceiveProps(){
-    console.log(this.props.doctor.doctor.list)
-    
+  componentWillReceiveProps() {
+    console.log(this.props.doctor.doctor.list);
+
     this.setState({
-      list:[...this.props.doctor.doctor.list]
-    })
-    
+      list: [...this.props.doctor.doctor.list],
+    });
   }
-  render() { 
-    let arr = this.state.list.map(function (obj,index) {
-      return(
-      <Card
+  render() {
+    let arr = this.state.list.map(function(obj, index) {
+      return (
+        <Card
           key={index}
           style={{ width: 240, height: 420 }}
           cover={
-            <img
-              alt="example"
-              src={obj.doctor_image}
-              className={doctorListStyles.doctorListImg}
-            />
+            <img alt="example" src={obj.doctor_image} className={doctorListStyles.doctorListImg} />
           }
           className={doctorListStyles.doctorListCard}
           bodyStyle={{ padding: 6, marginLeft: 47 }}
@@ -54,20 +49,31 @@ class Doctor extends Component {
           <p>医生工作地点:{obj.doctor_place}</p>
           <p>医生职称:{obj.doctor_job}</p>
           <p>挂号金额:{obj.doctor_price}</p>
-          <p className={doctorListStyles.card}>
-            医生简介{obj.doctor_message}
-          </p>
+          <p className={doctorListStyles.card}>医生简介:{obj.doctor_message}</p>
           <Popups />
         </Card>
-      )
-    })
+      );
+    });
 
     return (
       <div className={doctorListStyles.container}>
-      <div>
-        <PageHeaderWrapper title='医生列表'></PageHeaderWrapper>
-      </div>
+        <div>
+          <PageHeaderWrapper title="医生列表" />
+        </div>
         {arr}
+        <Card
+          style={{ width: 240, height: 420 }}
+          className={doctorListStyles.doctorListCard}
+          bodyStyle={{ fontSize: 200, marginTop: 20 }}
+        >
+          <Icon
+            type="plus"
+            className={doctorListStyles.iconImg}
+            onClick={() => {
+              router.push('/doctor/list2');
+            }}
+          />
+        </Card>
       </div>
     );
   }

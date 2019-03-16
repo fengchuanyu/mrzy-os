@@ -10,18 +10,19 @@ const columns = [
   {
     title: '病症名称',
     dataIndex: 'name',
-    width: 200,
+    width: '20%',
     key: 'name',
-    render: text => <a href="javascript:;">{text}</a>,
+    // render: text => <a href="javascript:;">{text}</a>,
   },
   {
     title: '病症详情',
     dataIndex: 'detail',
+    width: '70%',
     key: 'detail',
   },
   {
     title: 'Action',
-    width: 200,
+    width: '10%',
     key: 'action',
     render: () => (
       <span>
@@ -33,7 +34,7 @@ const columns = [
           okText="Yes"
           cancelText="No"
         >
-          <Button type="primary">删除</Button>
+          <Button style={{marginTop:'10px'}} type="primary">删除</Button>
         </Popconfirm>
       </span>
     ),

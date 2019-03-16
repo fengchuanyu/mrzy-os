@@ -5,14 +5,16 @@ import { Input, Button, Icon, Table, Popconfirm, message } from 'antd';
 
 const columns = [
   {
-    title: 'Name',
+    title: '科室名称',
     dataIndex: 'name',
     key: 'name',
-    render: text => <a href="javascript:;">{text}</a>,
+    width:'90%',
+    // render: text => <a href="javascript:;">{text}</a>,
   },
   {
     title: 'Action',
     key: 'action',
+    width:'10%',
     render: () => (
       <span>
         <Popconfirm
@@ -77,15 +79,20 @@ class Feature extends Component {
     const suffix = userName ? <Icon type="close-circle" onClick={this.emitEmpty} /> : null;
     return (
       <div>
+        
         <PageHeaderWrapper title="科室管理" />
+        <div>
         <Input
+        style={{width:'90%'}}
           placeholder="科室管理"
           prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
           suffix={suffix}
           value={userName}
           onChange={this.onChangeUserName}
           ref={node => (this.userNameInput = node)}
-        />
+        /><Button style={{width:'10%'}} type="primary">添加</Button>
+       
+        </div>
         <Table columns={columns} dataSource={data} />
       </div>
     );

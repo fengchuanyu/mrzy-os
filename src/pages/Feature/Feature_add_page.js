@@ -25,9 +25,9 @@ class Feature extends Component {
     return (
       <div>
         <PageHeaderWrapper title="添加诊疗" />
-        <Input placeholder="病症名称:" />
+        <div>病种名称：<Input style={{width:'82.5%'}} placeholder="请输入。。。" /></div>
         <div className="my-component" className={style.abc}>
-          <BraftEditor
+          <BraftEditor style={{ width:'90%',height:'95%',border:'1px solid #cdcdcd' }}
             value={this.state.editorState}
             onChange={this.handleEditorChange}
             onSave={this.submitContent}

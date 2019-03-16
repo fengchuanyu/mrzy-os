@@ -41,25 +41,26 @@ class AddMessage extends Component {
         return (
          <div >
            <PageHeaderWrapper title='添加文章'></PageHeaderWrapper>
-           <form action="">
-           <InputGroup compact>
-              < Select defaultValue="文章类型">
-             <Option value="Msg_Type">食补</Option>
-             <Option value="Msg_Type">养生</Option>
-           </Select>
-          <Input style={{ width: '50%' }} placeholder="请输入文章标题" />
-      
-           </InputGroup>
-                <div className="msg_write">
-        <BraftEditor
-                    value={this.state.editorState}
-                    onChange={this.handleEditorChange}
-                    onSave={this.submitContent}
-                />
-          
-                </div>
-                <Msg_add/>
-           </form>
+         <div >
+             {/* div用于提交数据 */}
+                <InputGroup compact>
+                    < Select defaultValue="文章类型">
+                  <Option value="Msg_Type">食补</Option>
+                  <Option value="Msg_Type">养生</Option>
+                </Select>
+                <Input style={{ width: '79.4%' }} placeholder="请输入文章标题" />
+            
+                </InputGroup>
+                      <div className="msg_write">
+              <BraftEditor  style={{ width:'90%',height:'95%',border:'1px solid #cdcdcd' }}
+                          value={this.state.editorState}
+                          onChange={this.handleEditorChange}
+                          onSave={this.submitContent}
+                      />
+                
+                      </div>
+                      <Msg_add/>
+          </div>
         
                 
             </div>

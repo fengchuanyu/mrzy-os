@@ -31,13 +31,11 @@ export default [
           {
             path: '/doctor/list1',
             name: 'list1',
-            icon: 'bars',
             component: './Doctor/doctorList',
           },
           {
             path: '/doctor/list2',
             name: 'list2',
-            icon: 'bars',
             component: './Doctor/addDoctor',
           },
         ],

@@ -130,6 +130,17 @@ export async function getDoctor() {
   return request(`${BASE_URL}/zyy/doctor/getdoc`);
 }
 
+export async function article() {
+  return request(`${BASE_URL}/zyy/User/article`);
+}
+
+export async function allcate() {
+  return request(`${BASE_URL}/zyy/User/allcate`);
+}
+
+export async function allills() {
+  return request(`${BASE_URL}/zyy/User/allills`);
+}
 // export async function getCaseList() {
 //   return request(`${BASE_URL}/zyy/Cased/getcase`);
 // }

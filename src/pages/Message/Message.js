@@ -13,14 +13,13 @@ const { Option } = Select;
 
 const columns = [{
   title: '标题',
-  dataIndex: 'msg_title',
+  dataIndex: 'article_title',
 }, {
   title: '类型',
-  dataIndex: 'msg_type',
+  dataIndex: 'cate_name',
 }, {
   title: '作者',
-  dataIndex: 'msg_author',
-  render: msg_author => <span>铭仁中医诊所</span>,
+  dataIndex: 'doctor_name',
 }, {
   title: 'Action',
   dataIndex: 'msg_action',
@@ -37,23 +36,23 @@ const columns = [{
 }
 ];
 
-const data = [{
-  id: 1,
-  key: '1',
-  msg_title: '中医药',
-  msg_type: '妇科',
-}, {
-  id: 2,
-  key: '2',
-  msg_title: '西医',
-  msg_type: '吃雅培',
-}, {
-  id: 3,
-  key: '3',
-  msg_title: '啊啊啊',
-  msg_type: '娃娃',
-},
-];
+// const data = [{
+//   id: 1,
+//   key: '1',
+//   msg_title: '中医药',
+//   msg_type: '妇科',
+// }, {
+//   id: 2,
+//   key: '2',
+//   msg_title: '西医',
+//   msg_type: '吃雅培',
+// }, {
+//   id: 3,
+//   key: '3',
+//   msg_title: '啊啊啊',
+//   msg_type: '娃娃',
+// },
+// ];
 
 function goAddMessage(id) {
   router.push(`/message/addmessage?id=${id}`);
@@ -68,9 +67,25 @@ class Message extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      visible: false
+      visible: false,
+      list:[]
     };
 
+  }
+  componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'message/gets',
+      payload: {},
+    });
+  }
+  componentWillReceiveProps(){
+    console.log(this.props)
+    
+    this.setState({
+      list:[...this.props.message.message.list]
+    })
+    
   }
 
   showDrawer = () => {
@@ -85,6 +100,7 @@ class Message extends Component {
     });
   };
   render() {
+    let data = this.state.list;
     return (
       <div>
         <PageHeaderWrapper title='文章列表'></PageHeaderWrapper>

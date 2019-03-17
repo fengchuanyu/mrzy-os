@@ -63,15 +63,16 @@ class CaseSend extends Component {
     const { userName } = this.state;
     const suffix = userName ? <Icon type="close-circle" onClick={this.emitEmpty} /> : null;
     return <div>
-      <PageHeaderWrapper title="病例发布"></PageHeaderWrapper>,
+      <PageHeaderWrapper title="病例发布"></PageHeaderWrapper>
       <Input
+        style={{width:'50%'}}
         placeholder="病例名称"
         prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
         suffix={suffix}
         value={userName}
         onChange={this.onChangeUserName}
         ref={node => this.userNameInput = node}
-      />,
+      />
       <Form>
         <span>科室：</span>
         <Select
@@ -87,7 +88,7 @@ class CaseSend extends Component {
         >
           <Option value="内科">内科</Option>
           <Option value="康复科">康复科</Option>
-        </Select>,
+        </Select>
         <span>医生：</span>
         <Select
           showSearch
@@ -101,7 +102,7 @@ class CaseSend extends Component {
         >
           <Option value="李延利">李延利</Option>
           <Option value="马建">马建</Option>
-        </Select>,
+        </Select>
         <span>病人：</span>
         <Select
           showSearch
@@ -114,13 +115,14 @@ class CaseSend extends Component {
           filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
         >
           <Option value="李延利">无匹配数据</Option>
-        </Select>,
-        <Button type="primary">点击搜索病人</Button>,
+        </Select>
+        <Button type="primary">点击搜索病人</Button>
         </Form>
         <Form>
           <div>
             <span>病例描述</span>
-            <BraftEditor
+            <BraftEditor className='editor_style'
+             style={{ width:'90%',height:'95%',border:'1px solid #cdcdcd' }}
               value={this.state.description}
               onChange={this.handleEditorChange}
               onSave={this.submitContent}
@@ -128,7 +130,8 @@ class CaseSend extends Component {
           </div>
           <div>
             <span>诊断结果</span>
-            <BraftEditor
+            <BraftEditor  className='editor_style'
+             style={{ width:'90%',height:'95%',border:'1px solid #cdcdcd' }}
               value={this.state.result}
               onChange={this.handleEditorChange}
               onSave={this.submitContent}
@@ -136,7 +139,8 @@ class CaseSend extends Component {
           </div>
           <div>
             <span>医生方案</span>
-            <BraftEditor
+            <BraftEditor className='editor_style'
+            style={{ width:'90%',height:'95%',border:'1px solid #cdcdcd' }}
               value={this.state.plan}
               onChange={this.handleEditorChange}
               onSave={this.submitContent}
@@ -144,13 +148,14 @@ class CaseSend extends Component {
           </div>
           <div>
             <span>注意事项</span>
-            <BraftEditor
+            <BraftEditor className='editor_style'
+            style={{ width:'90%',height:'95%',border:'1px solid #cdcdcd' }}
               value={this.state.matters}
               onChange={this.handleEditorChange}
               onSave={this.submitContent}
             />
           </div>
-          <Button type="primary" htmlType="submit">发布</Button>
+          <Button style={{marginTop:'10px'}}  type="primary" htmlType="submit">发布</Button>
         </Form>
     </div>;
   }

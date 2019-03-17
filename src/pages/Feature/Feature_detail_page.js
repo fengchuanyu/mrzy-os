@@ -5,14 +5,14 @@ import PageHeaderWrapper from '@/components/PageHeaderWrapper';
 import Popups from './Popups';
 
 const RadioGroup = Radio.Group;
-
+ 
 const columns = [
   {
     title: '病症名称',
     dataIndex: 'ill_title',
     width: 200,
     key: 'name',
-    render: text => <a href="javascript:;">{text}</a>,
+    // render: text => <a href="javascript:;">{text}</a>,
   },
   {
     title: '病症详情',
@@ -21,7 +21,7 @@ const columns = [
   },
   {
     title: 'Action',
-    width: 200,
+    width: '10%',
     key: 'action',
     render: () => (
       <span>
@@ -33,7 +33,7 @@ const columns = [
           okText="Yes"
           cancelText="No"
         >
-          <Button type="primary">删除</Button>
+          <Button style={{marginTop:'10px'}} type="primary">删除</Button>
         </Popconfirm>
       </span>
     ),

@@ -9,21 +9,25 @@ const Option = Select.Option;
 const columns = [{
   title: '就诊人姓名',
   dataIndex: 'name',
+  width:'20%'
 }, {
   title: '科室',
   className: 'keshi',
   dataIndex: 'keshi',//科室名称
+  width:'25%'
 }, {
   title: '医生',
   dataIndex: 'doctor',
+  width:'25%'
 },{
-  title: 'action',
+  title: 'Action',
   dataIndex: '',
+  width:'30%',
   render: (record) => {
     return (
       <div>
-        <Button type="primary" onClick={()=>goRegistration(record.id)}>编辑</Button>
-        <Button type="primary">删除</Button>
+        <Button style={{marginRight:'5px',marginButtom:'1px'}} type="primary" onClick={()=>goRegistration(record.id)}>编辑</Button>
+        <Button style={{marginRight:'5px',marginButtom:'1px'}} type="primary">删除</Button>
         <Popups></Popups>
       </div>
       )
@@ -100,7 +104,7 @@ class CaseList extends Component {
 
   render() {
     return <div>
-      <PageHeaderWrapper title="病例列表"></PageHeaderWrapper>,
+      <PageHeaderWrapper title="病例列表"></PageHeaderWrapper>
       <div>
         <form>
           <span>科室：</span>

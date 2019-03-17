@@ -34,7 +34,7 @@ class Popups extends Component {
 
     render() {
         return <div className={style.popups_1}>
-            <Button type="primary" onClick={this.showModal}>
+            <Button  style={{marginTop:'10px'}} type="primary" onClick={this.showModal}>
                 发布
             </Button>
             <Modal

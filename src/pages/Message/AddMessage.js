@@ -52,7 +52,8 @@ class AddMessage extends Component {
             
                 </InputGroup>
                       <div className="msg_write">
-              <BraftEditor  style={{ width:'90%',height:'95%',border:'1px solid #cdcdcd' }}
+              <BraftEditor className='editor_style'
+                  style={{ width:'90%',height:'95%',border:'1px solid #cdcdcd' }}
                           value={this.state.editorState}
                           onChange={this.handleEditorChange}
                           onSave={this.submitContent}

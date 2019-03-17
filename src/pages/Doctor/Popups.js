@@ -92,7 +92,7 @@ class Popups extends Component {
               <img
                 alt="example"
                 src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
-                style={{ width: 150, height: 200 ,float:'right',marginTop:-400}}
+                style={{ width: 150, height: 200, float: 'right', marginTop: -400 }}
               />
             </div>
           </Form>

@@ -50,8 +50,8 @@ class Doctor extends Component {
               </Button>
             </Upload>
             <Form.Item>
-              {getFieldDecorator('note', {
-                rules: [{ required: true, message: '医生姓名' }],
+              {getFieldDecorator('note1', {
+                rules: [{ required: true, message: '请输入医生姓名' }],
               })(
                 <Input
                   style={{ width: 300 }}
@@ -69,7 +69,7 @@ class Doctor extends Component {
               </Select>
             </Form.Item>
             <Form.Item>
-              {getFieldDecorator('note', {
+              {getFieldDecorator('note2', {
                 rules: [{ required: true, message: '请输入医生工作地点' }],
               })(
                 <Input
@@ -82,7 +82,7 @@ class Doctor extends Component {
               )}
             </Form.Item>
             <Form.Item>
-              {getFieldDecorator('note', {
+              {getFieldDecorator('note3', {
                 rules: [{ required: true, message: '请输入医生职称' }],
               })(
                 <Input
@@ -95,7 +95,7 @@ class Doctor extends Component {
               )}
             </Form.Item>
             <Form.Item>
-              {getFieldDecorator('note', {
+              {getFieldDecorator('note4', {
                 rules: [{ required: true, message: '请输入挂号金额' }],
               })(
                 <Input
@@ -108,7 +108,7 @@ class Doctor extends Component {
               )}
             </Form.Item>
             <Form.Item>
-              {getFieldDecorator('note', {
+              {getFieldDecorator('note5', {
                 rules: [{ required: true, message: '请输入医生简介' }],
               })(
                 <TextArea

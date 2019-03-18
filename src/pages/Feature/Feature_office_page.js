@@ -5,8 +5,8 @@ import { Input, Button, Icon, Table, Popconfirm, message } from 'antd';
 
 const columns = [
   {
+    dataIndex: 'cate_name',
     title: '科室名称',
-    dataIndex: 'name',
     key: 'name',
     width:'90%',
     // render: text => <a href="javascript:;">{text}</a>,
@@ -30,20 +30,20 @@ const columns = [
     ),
   },
 ];
-const data = [
-  {
-    key: '1',
-    name: '内科',
-  },
-  {
-    key: '2',
-    name: '内科',
-  },
-  {
-    key: '3',
-    name: '内科',
-  },
-];
+// const data = [
+//   {
+//     key: '1',
+//     name: '内科',
+//   },
+//   {
+//     key: '2',
+//     name: '内科',
+//   },
+//   {
+//     key: '3',
+//     name: '内科',
+//   },
+// ];
 
 function confirm(e) {
   console.log(e);
@@ -63,7 +63,24 @@ function cancel(e) {
 class Feature extends Component {
   constructor(props) {
     super(props);
-    this.state = { userName: '' };
+    this.state = { userName: '' ,
+    list:[]
+  };
+  }
+  componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'feature/gets',
+      payload: {},
+    });
+  }
+  componentWillReceiveProps(){
+    console.log(this.props)
+    
+    this.setState({
+      list:[...this.props.feature.feature.list]
+    })
+    
   }
   emitEmpty = () => {
     this.userNameInput.focus();
@@ -75,6 +92,7 @@ class Feature extends Component {
   };
 
   render() {
+    let data = this.state.list;
     const { userName } = this.state;
     const suffix = userName ? <Icon type="close-circle" onClick={this.emitEmpty} /> : null;
     return (

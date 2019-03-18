@@ -104,7 +104,7 @@ class CaseList extends Component {
 
   render() {
     return <div>
-      <PageHeaderWrapper title="病例列表"></PageHeaderWrapper>,
+      <PageHeaderWrapper title="病例列表"></PageHeaderWrapper>
       <div>
         <form>
           <span>科室：</span>

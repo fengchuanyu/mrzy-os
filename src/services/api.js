@@ -141,8 +141,22 @@ export async function getUserList() {
 export async function addDoc(params) {
   console.log(params);
   // return request(`${BASE_URL}/zyy/doctor/adddoc`, {
-    return request(`http://localhost/mrzyht/doctor/adddoc`, {
+    return request(`${BASE_URL}/zyy/doctor/adddoc`, {
     method: 'POST',
     body: params,
   });
 }
+export async function article() {
+  return request(`${BASE_URL}/zyy/User/article`);
+}
+
+export async function allcate() {
+  return request(`${BASE_URL}/zyy/User/allcate`);
+}
+
+export async function allills() {
+  return request(`${BASE_URL}/zyy/User/allills`);
+}
+// export async function getCaseList() {
+//   return request(`${BASE_URL}/zyy/Cased/getcase`);
+// }

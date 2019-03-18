@@ -121,7 +121,8 @@ class CaseSend extends Component {
         <Form>
           <div>
             <span>病例描述</span>
-            <BraftEditor style={{ width:'90%',height:'95%',border:'1px solid #cdcdcd' }}
+            <BraftEditor className='editor_style'
+             style={{ width:'90%',height:'95%',border:'1px solid #cdcdcd' }}
               value={this.state.description}
               onChange={this.handleEditorChange}
               onSave={this.submitContent}
@@ -129,7 +130,8 @@ class CaseSend extends Component {
           </div>
           <div>
             <span>诊断结果</span>
-            <BraftEditor style={{ width:'90%',height:'95%',border:'1px solid #cdcdcd' }}
+            <BraftEditor  className='editor_style'
+             style={{ width:'90%',height:'95%',border:'1px solid #cdcdcd' }}
               value={this.state.result}
               onChange={this.handleEditorChange}
               onSave={this.submitContent}
@@ -137,7 +139,8 @@ class CaseSend extends Component {
           </div>
           <div>
             <span>医生方案</span>
-            <BraftEditor style={{ width:'90%',height:'95%',border:'1px solid #cdcdcd' }}
+            <BraftEditor className='editor_style'
+            style={{ width:'90%',height:'95%',border:'1px solid #cdcdcd' }}
               value={this.state.plan}
               onChange={this.handleEditorChange}
               onSave={this.submitContent}
@@ -145,7 +148,8 @@ class CaseSend extends Component {
           </div>
           <div>
             <span>注意事项</span>
-            <BraftEditor style={{ width:'90%',height:'95%',border:'1px solid #cdcdcd' }}
+            <BraftEditor className='editor_style'
+            style={{ width:'90%',height:'95%',border:'1px solid #cdcdcd' }}
               value={this.state.matters}
               onChange={this.handleEditorChange}
               onSave={this.submitContent}

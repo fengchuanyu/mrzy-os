@@ -80,6 +80,9 @@ export default function request(url, option) {
 
   const defaultOptions = {
     // credentials: 'include',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    },
   };
   const newOptions = { ...defaultOptions, ...options };
   if (
@@ -122,6 +125,7 @@ export default function request(url, option) {
     .then(checkStatus)
     .then(response => cachedSave(response, hashcode))
     .then(response => {
+      console.log(newOptions.body);
       // DELETE and 204 do not return data by default
       // using .json will report an error.
       if (newOptions.method === 'DELETE' || response.status === 204) {

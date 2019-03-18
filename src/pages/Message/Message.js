@@ -14,20 +14,24 @@ const { Option } = Select;
 const columns = [{
   title: '标题',
   dataIndex: 'msg_title',
+  width:'40%'
 }, {
   title: '类型',
   dataIndex: 'msg_type',
+  width:'20%'
 }, {
   title: '作者',
+  width:'20%',
   dataIndex: 'msg_author',
   render: msg_author => <span>铭仁中医诊所</span>,
 }, {
   title: 'Action',
   dataIndex: 'msg_action',
+  width:'20%',
   render: (text,record) => {
     return (
-      <div>
-        <Button type="primary" onClick={()=>goAddMessage(record.id)}>
+    <div >
+        <Button style={{marginRight:'5px'}} type="primary" onClick={()=>goAddMessage(record.id)}>
           编辑
         </Button>
         <Msg_del></Msg_del>
@@ -88,7 +92,8 @@ class Message extends Component {
     return (
       <div>
         <PageHeaderWrapper title='文章列表'></PageHeaderWrapper>
-        <form action="">
+        <div>
+          {/* div用于提交数据 */}
           <Table
             columns={columns}
             dataSource={data}
@@ -97,7 +102,7 @@ class Message extends Component {
           >
 
           </Table>
-        </form>
+        </div>
 
 
       </div>

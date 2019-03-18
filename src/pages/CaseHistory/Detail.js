@@ -38,7 +38,7 @@ import style from './Detail.less';
 
 render() {
     return <div className={style.detail_1}>
-    <Button type="primary" onClick={this.showModal}>
+    <Button   type="primary" onClick={this.showModal}>
         详情
     </Button>
     <Modal

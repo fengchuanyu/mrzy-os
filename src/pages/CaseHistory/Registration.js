@@ -20,13 +20,13 @@ const columns = [{
     title: '挂号日期',
     dataIndex: 'r_time',
   },{
-    title: 'action',
+    title: 'Action',
     dataIndex: '',
     render: () => {
       return (
         <div>
-          <Detail></Detail>
-          <Button type="primary" onClick={goRegistration}>发布病例</Button>
+          <Detail ></Detail>
+          <Button style={{marginLeft:'10px'}}   type="primary" onClick={goRegistration}>发布病例</Button>
         </div>
         )
       }

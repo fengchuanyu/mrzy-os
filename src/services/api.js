@@ -139,7 +139,9 @@ export async function getUserList() {
 }
 
 export async function addDoc(params) {
-  return request('/api/register', {
+  console.log(params);
+  // return request(`${BASE_URL}/zyy/doctor/adddoc`, {
+    return request(`http://localhost/mrzyht/doctor/adddoc`, {
     method: 'POST',
     body: params,
   });

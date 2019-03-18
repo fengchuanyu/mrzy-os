@@ -31,17 +31,17 @@ class UserList extends Component {
         className: 'column-money',
         dataIndex: 'user_phone',
       }, {
-        title: '创建日期',
+        title: '创建日期',    
         dataIndex: 'user_birth',
       }, {
-        title: '操作',
+        title: 'Action',
         render:(text,record) =>{
           return(
             <div>
               <Button type="primary" onClick={()=>{
                 this.showModal(record.uid);        
                 }}>查看详情{record.name}</Button>
-              <Button type="primary" onClick={goCaseHistory}>病例管理</Button>
+              <Button style={{marginLeft:'5px'}} type="primary" onClick={goCaseHistory}>病例管理</Button>
            </div>
           )
         }

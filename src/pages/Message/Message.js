@@ -37,23 +37,6 @@ const columns = [{
 }
 ];
 
-// const data = [{
-//   id: 1,
-//   key: '1',
-//   msg_title: '中医药',
-//   msg_type: '妇科',
-// }, {
-//   id: 2,
-//   key: '2',
-//   msg_title: '西医',
-//   msg_type: '吃雅培',
-// }, {
-//   id: 3,
-//   key: '3',
-//   msg_title: '啊啊啊',
-//   msg_type: '娃娃',
-// },
-// ];
 
 function goAddMessage(id) {
   router.push(`/message/addmessage?id=${id}`);

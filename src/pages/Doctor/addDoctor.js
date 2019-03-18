@@ -123,7 +123,7 @@ class Doctor extends Component {
               style={{ width: 300 }}
               size="small"
               prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-              placeholder="医生姓名111"
+              placeholder="医生姓名"
               id="error"
               name="name"
               onChange={this.getName}

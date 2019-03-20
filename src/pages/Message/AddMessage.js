@@ -108,7 +108,7 @@ class AddMessage extends Component {
       )
     })
     return (
-      <div >
+      <div>
         <PageHeaderWrapper title='添加文章'></PageHeaderWrapper>
         <div >
           {/* div用于提交数据 */}

@@ -1,7 +1,11 @@
 import { stringify } from 'qs';
 import request from '@/utils/request';
-const BASE_URL = 'http://www.mrzymz.com';
 
+const globalUrl={
+  dev:'http://localhost:80/mrzyht',
+  pro:'http://www.mrzymz.com/zyy'
+}
+const BASE_URL = globalUrl.dev;
 export async function queryProjectNotice() {
   return request('/api/project/notice');
 }
@@ -127,36 +131,80 @@ export async function getFakeCaptcha(mobile) {
 }
 
 export async function getDoctor() {
-  return request(`${BASE_URL}/zyy/doctor/getdoc`);
+  return request(`${BASE_URL}/doctor/getdoc`);
 }
 
 export async function getRegistration() {
-  return request(`${BASE_URL}/zyy/user/changereg`);
+  return request(`${BASE_URL}/user/changereg`);
 }
 
 export async function getUserList() {
-  return request(`${BASE_URL}/zyy/user/getusers`);
+  return request(`${BASE_URL}/user/getusers`);
 }
 
 export async function addDoc(params) {
-  console.log(params);
-  // return request(`${BASE_URL}/zyy/doctor/adddoc`, {
-    return request(`${BASE_URL}/zyy/doctor/adddoc`, {
+  return request(`${BASE_URL}/doctor/adddoc`, {
     method: 'POST',
     body: params,
   });
 }
+
 export async function article() {
-  return request(`${BASE_URL}/zyy/User/article`);
+  return request(`${BASE_URL}/User/article`);
 }
 
 export async function allcate() {
-  return request(`${BASE_URL}/zyy/User/allcate`);
+  return request(`${BASE_URL}/User/allcate`);
 }
 
 export async function allills() {
-  return request(`${BASE_URL}/zyy/User/allills`);
+  return request(`${BASE_URL}/User/allills`);
 }
-// export async function getCaseList() {
-//   return request(`${BASE_URL}/zyy/Cased/getcase`);
-// }
+
+export async function addills(params) {
+  console.log(params);
+  return request(`${BASE_URL}/user/addills`, {
+    method: 'POST',
+    body: params,
+  });
+}
+
+export async function addoffice(params) {
+  console.log(params);
+  return request(`${BASE_URL}/doctor/addoffice`, {
+    method: 'POST',
+    body: params,
+  });
+}
+
+export async function casesend(params) {
+  console.log(params);
+  return request(`${BASE_URL}/user/addcase`, {
+    method: 'POST',
+    body: params,
+  });
+}
+
+export async function getOffice() {
+  return request(`${BASE_URL}/doctor/getoffice`);
+}
+
+export async function getCaseList() {
+  return request(`${BASE_URL}/user/getcase`);
+}
+
+export async function addMessage(params) {
+  console.log(params);
+  return request(`${BASE_URL}/doctor/addarticle`,{
+    method: 'POST',
+    body: params,
+  });
+}
+
+export async function change(params) {
+  console.log(params);
+  return request(`${BASE_URL}/user/change`,{
+    method: 'POST',
+    body: params,
+  });
+}

@@ -8,19 +8,18 @@ import Popups from './Popups';
 const Option = Select.Option;
 const columns = [{
   title: '就诊人姓名',
-  dataIndex: 'name',
+  dataIndex: 'c_name',
   width:'20%'
 }, {
   title: '科室',
-  className: 'keshi',
-  dataIndex: 'keshi',//科室名称
+  dataIndex: 'o_name',//科室名称
   width:'25%'
 }, {
   title: '医生',
-  dataIndex: 'doctor',
+  dataIndex: 'doctor_name',
   width:'25%'
 },{
-  title: 'Action',
+  title: '操作',
   dataIndex: '',
   width:'30%',
   render: (record) => {
@@ -32,26 +31,6 @@ const columns = [{
       </div>
       )
     }
-}];
-
-const data = [{//表格数据
-  id:1,
-  key: '1',
-  name: 'John Brown',
-  keshi: '￥300,000.00',
-  doctor: 'New York No. 1 Lake Park',
-}, {
-  id:2,
-  key: '2',
-  name: 'Jim Green',
-  keshi: '￥1,256,000.00',
-  doctor: 'London No. 1 Lake Park',
-}, {
-  id:3,
-  key: '3',
-  name: 'Joe Black',
-  keshi: '￥120,000.00',
-  doctor: 'Sidney No. 1 Lake Park',
 }];
 
 function handleChange(value) {
@@ -81,6 +60,7 @@ class CaseList extends Component {
     super(props);
     this.state = {
       visible: false,
+      list:[]
     };
   }
   componentDidMount() {
@@ -89,6 +69,13 @@ class CaseList extends Component {
       type: 'caselist/gets',
       payload: {},
     });
+  }
+
+  componentWillReceiveProps() {
+    console.log(this.props);
+    this.setState({
+      list:[...this.props.caselist.caselist.list]
+    }) 
   }
 
   showDrawer = () => {
@@ -141,7 +128,7 @@ class CaseList extends Component {
       </div>
       <Table
         columns={columns}
-        dataSource={data}
+        dataSource={this.state.list}
         bordered
       />,
     </div>;

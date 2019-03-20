@@ -27,7 +27,7 @@ const columns = [{
   render: (text,record) => {
     return (
     <div >
-        <Button style={{marginRight:'5px'}} type="primary" onClick={()=>goAddMessage(record.id)}>
+        <Button style={{marginRight:'5px'}} type="primary" onClick={()=>goAddMessage(record.aid)}>
           编辑
         </Button>
         <Msg_del></Msg_del>
@@ -36,24 +36,6 @@ const columns = [{
   }
 }
 ];
-
-// const data = [{
-//   id: 1,
-//   key: '1',
-//   msg_title: '中医药',
-//   msg_type: '妇科',
-// }, {
-//   id: 2,
-//   key: '2',
-//   msg_title: '西医',
-//   msg_type: '吃雅培',
-// }, {
-//   id: 3,
-//   key: '3',
-//   msg_title: '啊啊啊',
-//   msg_type: '娃娃',
-// },
-// ];
 
 function goAddMessage(id) {
   router.push(`/message/addmessage?id=${id}`);
@@ -69,7 +51,7 @@ class Message extends Component {
     super(props);
     this.state = {
       visible: false,
-      list:[]
+      list:[],
     };
 
   }
@@ -101,7 +83,6 @@ class Message extends Component {
     });
   };
   render() {
-    let data = this.state.list;
     return (
       <div>
         <PageHeaderWrapper title='文章列表'></PageHeaderWrapper>
@@ -109,7 +90,7 @@ class Message extends Component {
           {/* div用于提交数据 */}
           <Table
             columns={columns}
-            dataSource={data}
+            dataSource={this.state.list}
             bordered
             className={msg_style.td}
           >

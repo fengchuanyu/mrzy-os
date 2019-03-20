@@ -1,18 +1,18 @@
-import { getCaseList } from '@/services/api';
+import { addills } from '@/services/api';
 
 export default {
-  namespace: 'caselist',
+  namespace: 'addills',
 
   state: {
     list: [],
   },
 
   effects: {
-    *gets({ payload }, { call, put }) {
-      const response = yield call(getCaseList, payload);
+    *add({ payload }, { call, put }) {
+      const response = yield call(addills, payload);
       yield put({
         type: 'queryList',
-        payload: response.data,
+        payload
       });
     },
   },

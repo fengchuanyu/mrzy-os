@@ -1,18 +1,18 @@
-import { getUserList } from '@/services/api';
+import { addoffice } from '@/services/api';
 
 export default {
-  namespace: 'userpopups',
+  namespace: 'addoffice',
 
   state: {
     list: [],
   },
 
   effects: {
-    *gets({ payload }, { call, put }) {
-      const response = yield call(getUserList, payload);
+    *add({ payload }, { call, put }) {
+      const response = yield call(addoffice, payload);
       yield put({
         type: 'queryList',
-        payload: Array.isArray(response) ? response : [],
+        payload
       });
     },
   },

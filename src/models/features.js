@@ -1,4 +1,4 @@
-import { allills } from '@/services/api';
+import { allills,change } from '@/services/api';
 
 export default {
   namespace: 'features',
@@ -15,6 +15,13 @@ export default {
         payload: Array.isArray(response.data) ? response.data : [],
       });
     },  
+    *change({ payload }, { call, put }) {
+      const response = yield call(change, payload);
+      yield put({
+        type: 'queryList',
+        payload: Array.isArray(response) ? response : [],
+      });
+    }  
   },
 
   reducers: {

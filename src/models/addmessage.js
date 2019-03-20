@@ -1,20 +1,20 @@
-import { getCaseList } from '@/services/api';
+import { addMessage } from '@/services/api';
 
 export default {
-  namespace: 'caselist',
+  namespace: 'addmessage',
 
   state: {
     list: [],
   },
 
   effects: {
-    *gets({ payload }, { call, put }) {
-      const response = yield call(getCaseList, payload);
+    *add({ payload }, { call, put }) {
+      const response = yield call(addMessage, payload);
       yield put({
         type: 'queryList',
-        payload: response.data,
+        payload: Array.isArray(response) ? response : [],
       });
-    },
+    },  
   },
 
   reducers: {

@@ -119,7 +119,7 @@ class UserList extends Component {
 
       />
       <Modal
-          title="用户详情"
+          title="详情信息"
           visible={this.state.visible}
           onOk={this.handleOk}
           onCancel={this.handleCancel}

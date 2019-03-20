@@ -27,9 +27,9 @@ const upProps = {
 };
 
 
-@connect(adddoc => {
+@connect(getoffice => {
   return {
-    adddoc,
+    getoffice
   };
 })
 class Doctor extends Component {
@@ -41,8 +41,25 @@ class Doctor extends Component {
       price:'',
       office:'',
       place:'',
-      job:''
+      job:'',
+      list:[]//医生信息
     };
+  }
+
+  componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'getoffice/gets',
+      payload: {}
+    });
+  }
+
+  componentWillReceiveProps() {
+    console.log(this.props);
+    this.setState({
+      list:[...this.props.getoffice.getoffice.list]
+    }) 
+    console.log(this.state.list)
   }
 
   addDoc = () => {
@@ -80,7 +97,6 @@ class Doctor extends Component {
       this.setState({
         office:value
       })
-      // console.log(this.state.office);
     }
     getPlace = (e) =>{
       this.setState({
@@ -104,6 +120,12 @@ class Doctor extends Component {
   render() {
     const { getFieldDecorator } = this.props.form;
     const { dispatch } = this.props;
+    let arr = this.state.list.map(function(obj,index){
+      return (
+        <Option value={obj.oid} key={index}>{obj.o_name}</Option>
+      )
+    })
+
     // console.log(this.props);
     return (
       <div>
@@ -131,8 +153,7 @@ class Doctor extends Component {
           </Form.Item>
           <Form.Item>
             <Select style={{ width: 300 }} size="small" placeholder="请选择" name="office" onChange={this.getOffice}>
-              <Option value="kangfuke">内科</Option>
-              <Option value="neike">康复科</Option>
+              {arr}
             </Select>
           </Form.Item>
           <Form.Item validateStatus="error" help="请填写医生工作地点">

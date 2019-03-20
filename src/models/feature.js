@@ -14,7 +14,7 @@ export default {
         type: 'queryList',
         payload: Array.isArray(response) ? response : [],
       });
-    },  
+    }, 
   },
 
   reducers: {

@@ -1,34 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'dva';
 import PageHeaderWrapper from '@/components/PageHeaderWrapper';
-import { Input, Button, Icon, Table, Popconfirm, message } from 'antd';
-
-const columns = [
-  {
-    dataIndex: 'o_name',
-    title: '科室名称',
-    key: 'name',
-    width: '90%',
-  },
-  {
-    title: 'Action',
-    key: 'action',
-    width: '10%',
-    render: () => (
-      <span>
-        <Popconfirm
-          title="确认删除么?"
-          onConfirm={confirm}
-          onCancel={cancel}
-          okText="是"
-          cancelText="否"
-        >
-          <Button type="primary">删除</Button>
-        </Popconfirm>
-      </span>
-    ),
-  },
-];
+import { Input, Button, Icon, Table, message } from 'antd';
+import router from 'umi/router';
 
 function confirm(e) {
   console.log(e);
@@ -65,6 +39,7 @@ class Feature extends Component {
         o_name: name
       },
     });
+    router.push('/feature/office-page')
   }
 
   componentDidMount() {
@@ -79,10 +54,43 @@ class Feature extends Component {
     console.log(this.props)
 
     this.setState({
-      list: [...this.props.getoffice.getoffice.list]
+      list: [...this.props.getoffice.getoffice.list],
+      columns:[
+        {
+          dataIndex: 'o_name',
+          title: '科室名称',
+          key: 'name',
+          width: '90%',
+        },
+        {
+          title: 'Action',
+          key: 'action',
+          width: '10%',
+          render: (text, record) => (
+            <span>
+                <Button type="primary" onClick={()=>{
+                  this.deleteOffice(record.oid)
+                }}>删除</Button>
+            </span>
+          ),
+        },
+      ]
     })
 
   }
+
+  deleteOffice = (id) =>{
+    console.log(id)
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'addoffice/delete',
+      payload: {
+        oid:id
+      },
+    });
+    router.push('/feature/office-page')
+  }
+
   emitEmpty = () => {
     this.userNameInput.focus();
     this.setState({ userName: '' });
@@ -113,7 +121,7 @@ class Feature extends Component {
           /><Button style={{ width: '10%' }} type="primary" onClick={this.addoffice}>添加</Button>
 
         </div>
-        <Table columns={columns} dataSource={data} />
+        <Table columns={this.state.columns} dataSource={data} />
       </div>
     );
   }

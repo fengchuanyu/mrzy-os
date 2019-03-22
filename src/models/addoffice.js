@@ -1,4 +1,4 @@
-import { addoffice } from '@/services/api';
+import { addoffice,deleteOffice } from '@/services/api';
 
 export default {
   namespace: 'addoffice',
@@ -10,6 +10,13 @@ export default {
   effects: {
     *add({ payload }, { call, put }) {
       const response = yield call(addoffice, payload);
+      yield put({
+        type: 'queryList',
+        payload
+      });
+    },
+    *delete({ payload }, { call, put }) {
+      const response = yield call(deleteOffice, payload);
       yield put({
         type: 'queryList',
         payload

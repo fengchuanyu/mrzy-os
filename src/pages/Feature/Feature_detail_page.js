@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'dva';
-import { Table, Divider, Tag, Button, Popconfirm, message, Drawer, Radio, Modal, Input } from 'antd';
+import { Table, Divider, Tag, Button, message, Drawer, Radio, Modal, Input } from 'antd';
 import PageHeaderWrapper from '@/components/PageHeaderWrapper';
 
 const RadioGroup = Radio.Group;
 const { TextArea } = Input;
 let inputData = '';
 let textareaData = '';
-
-function confirm(e) {
-  message.success('删除成功');
-}
+let iid = '';
 
 function cancel(e) {
   message.error('取消删除');
@@ -28,9 +25,9 @@ class Feature extends Component {
       visible: false,
       placement: 'left',
       list: [],
-      index:0,//弹出层索引
-      popupsData:[],//弹出层数据
-      columns:[
+      index: 0,//弹出层索引
+      popupsData: [],//弹出层数据
+      columns: [
         {
           title: '病症名称',
           dataIndex: 'ill_title',
@@ -51,15 +48,9 @@ class Feature extends Component {
               <Button type="primary" onClick={() => {
                 this.showModal(record.iid)
               }}>编辑</Button>
-              <Popconfirm
-                title="确认删除么?"
-                onConfirm={confirm}
-                onCancel={cancel}
-                okText="是"
-                cancelText="否"
-              >
-                <Button style={{ marginTop: '10px' }} type="primary">删除</Button>
-              </Popconfirm>
+                <Button style={{ marginTop: '10px' }} type="primary" onClick={()=>{
+                  this.delete(record.iid)
+                }}>删除</Button>
             </div>
           ),
         },
@@ -67,15 +58,45 @@ class Feature extends Component {
     };
   }
 
+  delete = (data) =>{
+    console.log(data)
+    let popupsIndex;//弹出层对应索引
+    this.state.list.forEach(function (obj, index) {
+      if (obj.iid == data) {
+        popupsIndex = index;
+      }
+    });
+    // this.setState({
+      // visible: true,
+      // index: popupsIndex
+    // });
+    // iid = this.state.list[popupsIndex].iid
+    inputData = this.state.list[popupsIndex].ill_title
+    textareaData = this.state.list[popupsIndex].ill_content
+    // console.log(inputData)
+    // console.log(textareaData)
+
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'feature/deleteill',
+      payload: {
+        iid: data,
+        input: inputData,
+        textarea: textareaData
+      },
+    });
+
+  } 
+
   showPopups = (data) => {
     let arr = data.list.map(function (obj, index) {
       return (
         <div key={index}>
-          <p>病症名称：<Input defaultValue={obj.ill_title} onChange={(e)=>{
+          <p>病症名称：<Input defaultValue={obj.ill_title} onChange={(e) => {
             inputData = e.target.value
           }}></Input></p>
           <div>
-            <p>病症描述：<TextArea defaultValue={obj.ill_content} onChange={(e)=>{
+            <p>病症描述：<TextArea defaultValue={obj.ill_content} onChange={(e) => {
               textareaData = e.target.value
             }}></TextArea></p>
           </div>
@@ -87,7 +108,7 @@ class Feature extends Component {
       popupsData: arr
     })
   }
-  
+
   showModal = (data) => {
     let popupsIndex;//弹出层对应索引
     this.state.list.forEach(function (obj, index) {
@@ -100,8 +121,12 @@ class Feature extends Component {
       visible: true,
       index: popupsIndex
     });
+    inputData = this.state.list[popupsIndex].ill_title
+    textareaData = this.state.list[popupsIndex].ill_content
+    console.log(inputData)
+    console.log(textareaData)
   }
-  
+
   handleOk = (e) => {
     this.setState({
       visible: false,
@@ -112,13 +137,13 @@ class Feature extends Component {
     dispatch({
       type: 'features/change',
       payload: {
-        iid:obj.iid,
-        input:inputData,
-        textarea:textareaData
+        iid: obj.iid,
+        input: inputData,
+        textarea: textareaData
       },
     });
   }
-  
+
   handleCancel = (e) => {
     this.setState({
       visible: false,
@@ -147,17 +172,17 @@ class Feature extends Component {
     return (
       <div>
         <PageHeaderWrapper title="诊疗分类" />
-        <Table 
-        columns={this.state.columns} 
-        dataSource={data} 
-        scroll={{ y: 1300 }} 
-        rowKey={record => record.iid} 
+        <Table
+          columns={this.state.columns}
+          dataSource={data}
+          scroll={{ y: 1300 }}
+          rowKey={record => record.iid}
         />
         <Modal
           title="编辑信息"
           visible={this.state.visible}
           onOk={this.handleOk}
-          onCancel={this.handleCancel}    
+          onCancel={this.handleCancel}
         >
           {this.state.popupsData[this.state.index]}
         </Modal>

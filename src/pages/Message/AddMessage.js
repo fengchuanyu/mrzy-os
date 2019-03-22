@@ -24,7 +24,7 @@ class AddMessage extends Component {
       messageName: '',
       list: [],//存放文章类型,
       title: '',
-      type: '',
+      type: '医疗',
       desc: ''
     };
   }
@@ -35,9 +35,9 @@ class AddMessage extends Component {
     })
   }
 
-  getType = (e) => {
+  getType = (value) => {
     this.setState({
-      type: e.target.value
+      type: value
     })
   }
 
@@ -104,7 +104,7 @@ class AddMessage extends Component {
     const suffix = messageName ? <Icon type="close-circle" onClick={this.emitEmpty} /> : null;
     let arr = this.state.list.map(function (val, index) {
       return (
-        <Option value={val}>{val}</Option>
+        <Option value={val} key={index}>{val}</Option>
       )
     })
     return (
@@ -114,7 +114,7 @@ class AddMessage extends Component {
           {/* div用于提交数据 */}
           <InputGroup compact>
             <Input style={{ width: '79.4%' }} placeholder="请输入文章标题" onChange={this.getTitle} />
-            < Select defaultValue="文章类型" onChange={this.getDesc}>
+            < Select defaultValue="医疗" onChange={this.getType}>
               {arr}
             </Select>
           </InputGroup>

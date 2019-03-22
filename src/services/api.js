@@ -208,3 +208,27 @@ export async function change(params) {
     body: params,
   });
 }
+
+export async function deleteIll(params) {
+  console.log(params);
+  return request(`${BASE_URL}/user/delete`,{
+    method: 'POST',
+    body: params,
+  });
+}
+
+export async function deleteOffice(params) {
+  console.log(params);
+  return request(`${BASE_URL}/doctor/deloffice`,{
+    method: 'POST',
+    body: params,
+  });
+}
+
+export async function deleteMessage(params) {
+  console.log(params);
+  return request(`${BASE_URL}/doctor/delarticle`,{
+    method: 'POST',
+    body: params,
+  });
+}

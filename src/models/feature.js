@@ -1,4 +1,4 @@
-import { allcate } from '@/services/api';
+import { allcate,deleteIll } from '@/services/api';
 
 export default {
   namespace: 'feature',
@@ -15,6 +15,13 @@ export default {
         payload: Array.isArray(response) ? response : [],
       });
     }, 
+    *deleteill({ payload }, { call, put }) {
+      const response = yield call(deleteIll, payload);
+      yield put({
+        type: 'queryList',
+        payload: Array.isArray(response) ? response : [],
+      });
+    },
   },
 
   reducers: {

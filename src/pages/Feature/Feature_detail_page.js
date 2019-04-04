@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'dva';
 import { Table, Divider, Tag, Button, message, Drawer, Radio, Modal, Input } from 'antd';
 import PageHeaderWrapper from '@/components/PageHeaderWrapper';
+import router from 'umi/router';
 
 const RadioGroup = Radio.Group;
 const { TextArea } = Input;
@@ -85,7 +86,7 @@ class Feature extends Component {
         textarea: textareaData
       },
     });
-
+    router.push('/feature/detail-page');
   } 
 
   showPopups = (data) => {
@@ -142,6 +143,7 @@ class Feature extends Component {
         textarea: textareaData
       },
     });
+    router.push('/feature/detail-page');
   }
 
   handleCancel = (e) => {

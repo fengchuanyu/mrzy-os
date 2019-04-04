@@ -4,6 +4,7 @@ import PageHeaderWrapper from '@/components/PageHeaderWrapper';
 import BraftEditor from 'braft-editor';
 import 'braft-editor/dist/index.css';
 import { Button, Input } from 'antd';
+import router from 'umi/router';
 
 @connect(addills => {
   return {
@@ -28,6 +29,7 @@ class Feature extends Component {
         textarea:this.state.textarea
       },
     });
+    router.push('/feature/detail-page');
   }
 
   handleEditorChange = (editorState) => {
